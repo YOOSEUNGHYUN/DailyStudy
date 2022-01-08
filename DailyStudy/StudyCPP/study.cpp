@@ -1,32 +1,71 @@
-//Quiz1. 
-//이진수 0110을 >> 2 하고 decimal 로 나오게 출력
-//Quiz2.
-//5 | 12
-//5 & 12
-//5 ^ 12
-
+//Bit flags
 #include <iostream>
-#include <bitset>  //2진수로 바꿔서 출력해주는 라이브러리
+#include <bitset>
 using namespace std;
 
 int main()
 {
-	//Quiz1
-	unsigned int c = 0b0110;
-	cout << bitset<4>(c >> 2) << " " << (c >> 2) << endl;
+	const unsigned char opt0 = 1 << 0;
+	const unsigned char opt1 = 1 << 1;
+	const unsigned char opt2 = 1 << 2;
+	const unsigned char opt3 = 1 << 3;
+	//opt4, 5, 6, 7
+
+	cout << bitset<8>(opt0) << endl;
+	cout << bitset<8>(opt1) << endl;
+	cout << bitset<8>(opt2) << endl;
+	cout << bitset<8>(opt3) << endl;
 
 
-	//Quiz2
-	unsigned int a = 5;
-	unsigned int b = 12;
+	unsigned char items_flag = 0;
+	cout << "No item " << bitset<8>(items_flag) << endl;
 
-	cout << bitset<4>(a) << endl;
-	cout << bitset<4>(b) << endl;
-	cout << bitset<4>(a & b) << endl; //Bitwise AND
-	cout << bitset<4>(a | b) << endl; //Bitwise OR
-	cout << bitset<4>(a ^ b) << endl; //Bitwise XOR
+	// item0 on
+	items_flag |= opt0;
+	cout << "Item0 obtained " << bitset<8>(items_flag) << endl;
 
+	// item3 on
+	items_flag |= opt3;
+	cout << "Item3 obtained " << bitset<8>(items_flag) << endl;
+
+	//item3 lost
+	items_flag &= ~opt3;
+	cout << "Item3 lost " << bitset<8>(items_flag) << endl;
+
+	//has item1 ?
+	if (items_flag & opt1)
+	{
+		cout << "Has item1" << endl;
+	}
+	else
+	{
+		cout << "Not Have item1" << endl;
+	}
+
+	//has item0 ?
+	if (items_flag & opt0)
+	{
+		cout << "Has item0" << endl;
+	}
+
+	//obtain item 2,3 동시에 갖게 될 경우
+	items_flag |= (opt2 | opt3);
+
+	cout << bitset<8>(opt2 | opt3) << endl;
+	cout << "Item2, 3 obtained " << bitset<8>(items_flag) << endl;
+
+	//event가 발생했는데 아이템 2를 갖고있고 아이템1은 없을 때 
+	//아이템2는 잃게하고 아이템1을 얻게 만듬
+	if ((items_flag & opt2) && !(items_flag & opt1))
+	{
+		items_flag ^= opt2;
+		items_flag ^= opt1;
+	}
+
+	cout << bitset<8>(items_flag) << endl;
 	return 0;
+
+
 
 }
 
