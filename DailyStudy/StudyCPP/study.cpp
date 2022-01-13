@@ -1,28 +1,32 @@
-//지역변수, scope, duration
+//전역변수,정적변수,내부연결,외부연결
 #include <iostream>
+#include "MyConstant.h"
+
 using namespace std;
 
-namespace work1::work11::work111
-{
-	int a = 1;
-	void doSomething()
-	{
-		a += 3;
-	}
-}
+/*extern*/ void doSomething(); //여기서 extern은 생략가능
 
-namespace work2
-{
-	int a = 1;
-	void doSomething()
-	{
-		a += 5;
-	}
-}
+/*
+int g_x; //external linkage
+static int g_x; //internal linkage
+const int g_x; // X
+
+extern int g_z;
+extern const int g_z;
+
+int g_y(1);
+static int g_y(1);
+const int g_y(1);
+
+extern int g_w(1);
+extern const int g_w(1);
+*/
 
 int main()
 {
-	work1::work11::work111::doSomething();
+	cout << "In study.cpp file " << Constants::pi << " " << &Constants::pi << endl;
+
+	doSomething();
 
 	return 0;
 }
