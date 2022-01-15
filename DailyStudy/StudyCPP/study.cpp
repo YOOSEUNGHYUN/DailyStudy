@@ -1,32 +1,33 @@
-//전역변수,정적변수,내부연결,외부연결
+//studying using문과 모호성
 #include <iostream>
-#include "MyConstant.h"
 
-using namespace std;
+namespace a
+{
+	int my_var(10);
+	int my_a(123);
+	int count(12312312);
+}
 
-/*extern*/ void doSomething(); //여기서 extern은 생략가능
-
-/*
-int g_x; //external linkage
-static int g_x; //internal linkage
-const int g_x; // X
-
-extern int g_z;
-extern const int g_z;
-
-int g_y(1);
-static int g_y(1);
-const int g_y(1);
-
-extern int g_w(1);
-extern const int g_w(1);
-*/
+namespace b
+{
+	int my_var(20);
+	int my_b(456);
+}
 
 int main()
 {
-	cout << "In study.cpp file " << Constants::pi << " " << &Constants::pi << endl;
+	using namespace std;
 
-	doSomething();
+	{
+		//using namespace a;
+		cout << a::my_var << endl;
+		cout << a::count << endl;
+	}
 
+	{
+		using namespace b;
+		cout << my_var << endl;
+	}
+	
 	return 0;
 }
