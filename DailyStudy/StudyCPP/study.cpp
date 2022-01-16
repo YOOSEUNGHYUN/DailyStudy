@@ -1,33 +1,24 @@
-//studying using문과 모호성
+//studying auto 키워드, type Inference
 #include <iostream>
 
-namespace a
+auto add(int x, int y) -> int
 {
-	int my_var(10);
-	int my_a(123);
-	int count(12312312);
+	return x + (double)y;
 }
 
-namespace b
+auto add(double x, double y)
 {
-	int my_var(20);
-	int my_b(456);
+	return x + y;
 }
 
 int main()
 {
 	using namespace std;
 
-	{
-		//using namespace a;
-		cout << a::my_var << endl;
-		cout << a::count << endl;
-	}
+	auto a = 123;
+	auto d = 123.0;
+	auto c = 1 + 2.0;
+	auto result = add(1, 2);
 
-	{
-		using namespace b;
-		cout << my_var << endl;
-	}
-	
 	return 0;
 }
