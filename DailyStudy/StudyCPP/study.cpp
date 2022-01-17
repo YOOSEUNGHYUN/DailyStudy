@@ -1,24 +1,19 @@
-//studying auto Å°¿öµå, type Inference
+//studying Implicit Type Conversion, Explicit Type Conversion
 #include <iostream>
-
-auto add(int x, int y) -> int
-{
-	return x + (double)y;
-}
-
-auto add(double x, double y)
-{
-	return x + y;
-}
+#include <typeinfo>
+#include <iomanip>
+using namespace std;
 
 int main()
 {
-	using namespace std;
+	//numeric conversion
+	cout << 5u - 10;
 
-	auto a = 123;
-	auto d = 123.0;
-	auto c = 1 + 2.0;
-	auto result = add(1, 2);
+	//int,unsigned int, long, unsigned long,
+	//long long, unsigned long long, float, double,
+	//long double
+
+	int i = static_cast<int>(4.0);
 
 	return 0;
 }
