@@ -1,19 +1,26 @@
-//studying Implicit Type Conversion, Explicit Type Conversion
+//studying std::string
 #include <iostream>
-#include <typeinfo>
-#include <iomanip>
+#include <string>
+#include <limits>
+
 using namespace std;
 
 int main()
 {
-	//numeric conversion
-	cout << 5u - 10;
+	cout << "Your age ? : ";
+	int age;
+	cin >> age;
+	//std::getline(std::cin, age);
 
-	//int,unsigned int, long, unsigned long,
-	//long long, unsigned long long, float, double,
-	//long double
+	//std::cin.ignore(32767, '\n');
+	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
-	int i = static_cast<int>(4.0);
+	cout << "Your name ? : ";
+	string name;
+	//cin >> name;
+	std::getline(std::cin, name);
+
+	cout << name << " " << age << endl;
 
 	return 0;
 }
