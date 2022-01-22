@@ -1,39 +1,33 @@
-//studying enumerated types
+//studying Scoped Enumerations (Enum Class)
 #include <iostream>
-#include <typeinfo>
-#include <string>
 
 using namespace std;
 
-enum Color //user-defined data types
-{
-	COLOR_BLACK,
-	COLOR_RED,
-	COLOR_BLUE,
-	COLOR_GREEN,
-	BLUE,
-
-}; //중괄호가 끝나면 ; 꼭 쳐야한다.
-
 int main()
 {
-	int color_id = COLOR_RED;
+	enum class Color
+	{
+		RED,
+		BLUE,
+	};
 
-	Color my_color = static_cast <Color>(3);
+	enum class Fruit
+	{
+		BANANA,
+		APPLE,
+	};
 
-	//cin >> my_color;
+	Color color1 = Color::BLUE;
+	Color color2 = Color::BLUE;
 
-	//int in_number;
-	//cin >> in_number;
-
-	string str_input;
-
-	getline(cin, str_input);
-
-	if (str_input == "COLOR_BLACK")my_color = static_cast <Color>(0);
-	//...
-
-	cout << my_color << endl;
-
+	if (color1 == color2)
+	{
+		cout << "Same color " << endl;
+	}
+	else
+		cout << "Different color" << endl;
+	
 	return 0;
 }
+	
+
