@@ -1,32 +1,17 @@
-//studying Scoped Enumerations (Enum Class)
+//studying Type aliases
 #include <iostream>
-
+#include <vector>
+#include <cstdint> //고정너비정수
 using namespace std;
 
 int main()
 {
-	enum class Color
-	{
-		RED,
-		BLUE,
-	};
+	//typedef vector<pair<string, int> > pairlist_t;
+	using pairlist_t = vector<pair<string, int> >;
 
-	enum class Fruit
-	{
-		BANANA,
-		APPLE,
-	};
+	pairlist_t pairlist1;
+	pairlist_t pairlist2;
 
-	Color color1 = Color::BLUE;
-	Color color2 = Color::BLUE;
-
-	if (color1 == color2)
-	{
-		cout << "Same color " << endl;
-	}
-	else
-		cout << "Different color" << endl;
-	
 	return 0;
 }
 	
