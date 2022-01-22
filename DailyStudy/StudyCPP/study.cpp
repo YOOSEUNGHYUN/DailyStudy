@@ -1,16 +1,17 @@
-//studying Type aliases
+//studying 고정너비정수(fixed-width integers) c++11
 #include <iostream>
-#include <vector>
-#include <cstdint> //고정너비정수
+//#include <cstdint> //고정너비정수
 using namespace std;
 
 int main()
 {
-	//typedef vector<pair<string, int> > pairlist_t;
-	using pairlist_t = vector<pair<string, int> >;
+	int16_t i(5);
+	int8_t myint = 65;
 
-	pairlist_t pairlist1;
-	pairlist_t pairlist2;
+	cout << myint << endl;
+
+	int_fast8_t fi(5);
+	int_least64_t fl(5);
 
 	return 0;
 }
