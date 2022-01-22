@@ -1,17 +1,22 @@
-//studying 고정너비정수(fixed-width integers) c++11
+//studying struct
 #include <iostream>
-//#include <cstdint> //고정너비정수
+#include <string>
+
 using namespace std;
+
+struct Employee // 2 + (2) + 4 + 8 = 16 //padding
+{
+	short   id;   // 2 bytes
+	int     age;  // 4 bytes
+	double  wage; // 8 bytes
+};
+
 
 int main()
 {
-	int16_t i(5);
-	int8_t myint = 65;
+	Employee emp1;
 
-	cout << myint << endl;
-
-	int_fast8_t fi(5);
-	int_least64_t fl(5);
+	cout << sizeof(Employee) << endl;
 
 	return 0;
 }
