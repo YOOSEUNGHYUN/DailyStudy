@@ -1,20 +1,19 @@
-//studying control flow
+//studying if
 #include <iostream>
-#include <cstdlib>
 
 using namespace std;
 
 int main()
 {
-	cout << "I love you " << endl;
+	int x;
+	cin >> x;
 
-	exit(0);
+	if (x = 0) //=과 == 주의해서 써야한다.
+		cout << x << endl;
 
-	//....
+	cout << x << endl;
 
-	/*cout << "I love you, too" << endl;
 
-	return 0;*/
-
+	return 0;
 }
 
