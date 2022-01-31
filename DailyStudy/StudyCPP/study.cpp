@@ -1,4 +1,4 @@
-//studying if
+//studying switch-case
 #include <iostream>
 
 using namespace std;
@@ -8,12 +8,27 @@ int main()
 	int x;
 	cin >> x;
 
-	if (x = 0) //=과 == 주의해서 써야한다.
-		cout << x << endl;
+	switch (x)
+	{
+		case 0:
+		{
+			int y = 5;
+			y = y + x;
+			cout << y << endl;
+			break;
+		}
 
-	cout << x << endl;
+		case 1:
+		{
+			int y = 5;
+			y = y - x;
+			cout << y << endl;
+			break;
+		}
 
+		default: //case에 정의되지않은 모든 경우에 대해서 실행
+			cout << "Undefined input" << x << endl;
+	}
 
 	return 0;
 }
-
