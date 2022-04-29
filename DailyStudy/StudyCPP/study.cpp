@@ -1,20 +1,65 @@
-//studying random number generation
+//studying cin.fail,clear,ignore()
 #include <iostream>
-#include <cstdlib> // std::rand(), std::srand()
-#include <ctime> // std::time()
-#include <random>
 
 using namespace std;
 
+int getInt()
+{
+	while(true)
+	{
+		cout << "Enter an integer number : ";
+		int x;
+		cin >> x;
+
+		if (std::cin.fail())
+		{
+			std::cin.clear();
+			std::cin.ignore(32767, '\n');
+			cout << "Invalid number, please try again" << endl;
+		}
+		else
+		{
+			std::cin.ignore(32767, '\n');
+			return x;
+		}
+	}
+}
+
+char getOperator()
+{
+	while(true)
+	{
+		cout << "Enter an operator (+, -) : "; //TODO: more operators *, / etc.
+		char op;
+		cin >> op;
+		std::cin.ignore(32767, '\n');
+
+		if (op == '+' || op == '-')
+			return op;
+		else
+			cout << "Invalid operator, please try again" << endl;
+		
+	}
+}
+
+void printResult(int x, char op, int y)
+{
+	if (op == '+') cout << x + y << endl;
+	else if (op == '-') cout << x - y << endl;
+	else
+	{
+		cout << "Invalid operator" << endl;
+	}
+}
+
 int main()
 {
-	std::random_device rd;
-	std::mt19937 mersenne(rd()); //create a mersenne twister
-	std::uniform_int_distribution<> dice(1, 6); 
+	int x = getInt();
+	char op = getOperator();
+	int y = getInt();
 
-	for (int count = 1; count <= 20; ++count)
-		cout << dice(mersenne) << endl;
-
+	printResult(x, op, y);
+	
 	return 0;
 }
 
