@@ -1,65 +1,38 @@
-//studying cin.fail,clear,ignore()
+//studying array 
 #include <iostream>
 
 using namespace std;
 
-int getInt()
+#define NUM_STUDENTS 100000
+
+void doSomething(int students_scores[]) 
 {
-	while(true)
-	{
-		cout << "Enter an integer number : ";
-		int x;
-		cin >> x;
+	cout << (int)&students_scores << endl;
+	cout << (int)&students_scores[0] << endl;
+	cout << students_scores[0] << endl;
+	cout << students_scores[1] << endl;
+	cout << students_scores[2] << endl;
+	cout << "Size in doSomething " << sizeof(students_scores) << endl;
 
-		if (std::cin.fail())
-		{
-			std::cin.clear();
-			std::cin.ignore(32767, '\n');
-			cout << "Invalid number, please try again" << endl;
-		}
-		else
-		{
-			std::cin.ignore(32767, '\n');
-			return x;
-		}
-	}
-}
-
-char getOperator()
-{
-	while(true)
-	{
-		cout << "Enter an operator (+, -) : "; //TODO: more operators *, / etc.
-		char op;
-		cin >> op;
-		std::cin.ignore(32767, '\n');
-
-		if (op == '+' || op == '-')
-			return op;
-		else
-			cout << "Invalid operator, please try again" << endl;
-		
-	}
-}
-
-void printResult(int x, char op, int y)
-{
-	if (op == '+') cout << x + y << endl;
-	else if (op == '-') cout << x - y << endl;
-	else
-	{
-		cout << "Invalid operator" << endl;
-	}
 }
 
 int main()
 {
-	int x = getInt();
-	char op = getOperator();
-	int y = getInt();
+	const int num_students = 20; 
+	//cin >> num_students;
 
-	printResult(x, op, y);
-	
+	int students_scores[num_students] = {1, 2, 3, 4, 5, }; 
+
+	cout << (int)students_scores << endl;
+	cout << (int)&students_scores << endl;
+	cout << students_scores[0] << endl;
+	cout << students_scores[1] << endl;
+	cout << students_scores[2] << endl;
+	cout << "Size in main " << sizeof(students_scores) << endl;
+
+
+	doSomething(students_scores); 
+
 	return 0;
 }
 
