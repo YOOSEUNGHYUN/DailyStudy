@@ -1,45 +1,53 @@
-//studying array 
+//studying array and selection sort
 #include <iostream>
 
 using namespace std;
 
+void printArray(const int array[], const int length) //lenth 도 같이 보내줘야 함
+{
+	for (int index = 0; index < length; ++index)
+		cout << array[index] << " ";
+	cout << endl;
+}
+
 int main()
 {
-	//const int num_students = 5;
-	int scores[] = { 84, 92, 76, 81, 56 };
+	/*				value	index
+	3 5 2 1 4		  1		  3
+	1 5 2 3 4		  2		  2
+	1 2 5 3 4		  3		  3
+	1 2 3 5 4		  4		  4
+	1 2 3 4 5 
+	*/
+	
+	const int length = 5;
 
-	const int num_students = sizeof(scores) / sizeof(int);
+	int array[length] = { 3, 5, 2, 1, 4 };
 
-	int min_score = 100;
-	int max_score = 0;
-	int total_score = 0;
+	printArray(array, length);
 
-	for (int i = 0; i < num_students; ++i)
+	for (int startIndex = 0; startIndex < length - 1; ++startIndex)
 	{
-		total_score += scores[i];
-		max_score = (max_score < scores[i]) ? scores[i] : max_score;
-		/*if (max_score < scores[i])
-			max_score = scores[i];*/
+		int smallestIndex = startIndex;
 
-		min_score = (min_score > scores[i]) ? scores[i] : min_score;
+		for (int currentIndex = startIndex + 1; currentIndex < length; ++currentIndex)
+		{
+			if (array[smallestIndex] > array[currentIndex])
+			{
+				smallestIndex = currentIndex;
+			}
+		}
+
+		// swap two values in the array
+		// std::swap(array[smallestIndex], array[startIndex]);
+		{
+			int temp = array[smallestIndex];
+			array[smallestIndex] = array[startIndex];
+			array[startIndex] = temp;
+		}
+
+		printArray(array, length);
 	}
-
-	cout << "총합 : " << total_score << endl;
-	cout << "최고점 : " << max_score << endl;
-	cout << "최저점 : " << min_score << endl;
-
-	double avg_score = static_cast<double>(total_score) / num_students;
-
-	/*int score0 = 84;
-	int score1 = 92;
-	int score2 = 76;
-	int score3 = 81;
-	int score4 = 56;
-
-	int total_score = score0 + score1 + score2 + score3 + score4;
-
-	double avg_score = static_cast<double>(total_score) / num_students;*/
-	//Note: double(total_score) / num_students != double(total_score / num_students);
 
 	return 0;
 }
