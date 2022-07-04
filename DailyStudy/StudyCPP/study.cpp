@@ -1,4 +1,5 @@
 //studying array and selection sort
+#include <algorithm>
 #include <iostream>
 
 using namespace std;
@@ -51,3 +52,17 @@ int main()
 
 	return 0;
 }
+
+
+//int main()
+//{
+//    const int length = 5;
+//    int array[length] = { 3, 5, 2, 1, 4 };
+//
+//    std::sort(array, array + length);
+//
+//    for (int i = 0; i < length; ++i)
+//        std::cout << array[i] << ' ';
+//
+//    return 0;
+//}
