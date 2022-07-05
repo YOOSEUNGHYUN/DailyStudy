@@ -1,41 +1,26 @@
-//studying array and selection sort
+//studying Multidimensional Arrays
 #include <iostream>
-
 using namespace std;
-
-void printArray(const int array[], const int length)
-{
-	for (int index = 0; index < length; ++index)
-		cout << array[index] << " ";
-
-	cout << endl;
-}
 
 int main()
 {
-	const int length = 10;
+	const int num_rows = 3;
+	const int num_columns = 5;
 
-	int array[length] = { 3, 5, 2, 1, 4, 6, 8, 7, 9, 10 };
+	int array[5][4][3];
 
-	printArray(array, length);
 
-	for (int startIndex = 0; startIndex < length-1; ++startIndex)
-	{
-		int smallestIndex = startIndex;
-		
-		for (int currentIndex = startIndex + 1; currentIndex < length; ++currentIndex)
-		{
-			if (array[smallestIndex] > array[currentIndex])
-				smallestIndex = currentIndex;
-		}
+	//int array[num_rows][num_columns] = { 0 };
 
-		int temp = array[smallestIndex];
-		array[smallestIndex] = array[startIndex];
-		array[startIndex] = temp;
+	//for (int row = 0; row < num_rows; ++row)
+	//{
+	//	for (int col = 0; col < num_columns; ++col)
+	//		//cout << '[' << row << ']' << '[' << col << ']' << '\t';
+	//		cout << array[row][col] << '\t';
+	//		//cout << (int)&array[row][col] << '\t';
 
-		printArray(array, length);
-	}
-
+	//	cout << endl;
+	//}
 	return 0;
 }
 
