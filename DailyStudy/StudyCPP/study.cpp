@@ -1,22 +1,31 @@
-//studying C-style strings
+//studying pointer
 #include <iostream>
-#include <cstring>
+#include <typeinfo>
 using namespace std;
+
+struct Something
+{
+	int a, b, c, d; // 4 x 4 = 16 bytes
+};
 
 int main()
 {
-	char source[] = "Copy this!";
-	char dest[50]; 
-	strcpy_s(dest, 50, source);
+	int x = 5;
+	double d = 123.0;
 
-	//strcat()
-	strcmp(dest, source);
+	int *ptr_x = &x;
+	double *ptr_d;
 
-	if (strcmp(dest, source) == 0)
-	{
-		cout << " same " << endl;
-	}
+	cout << sizeof(x) << endl;
+	cout << sizeof(d) << endl;
+	cout << sizeof(&x) << " " << sizeof(ptr_x) << endl;
+	cout << sizeof(&d) << " " << sizeof(ptr_d) << endl;
+
+	Something ss;
+	Something *ptr_s;
+
+	cout << sizeof(Something) << endl;
+	cout << sizeof(ptr_s) << endl;
 
 	return 0;
 }
-
