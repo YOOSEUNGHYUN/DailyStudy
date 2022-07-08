@@ -1,31 +1,42 @@
-//studying pointer
+//studying Null pointer
 #include <iostream>
-#include <typeinfo>
+#include <cstddef>
+
 using namespace std;
 
-struct Something
+void doSomething(double *ptr)
 {
-	int a, b, c, d; // 4 x 4 = 16 bytes
-};
+	cout << " Address of pointer variable in doSomething() " << &ptr << endl;
+
+	if (ptr != nullptr) 
+	{
+		//do something useful
+		cout << *ptr << endl;
+	}
+	else
+	{
+		//do nothing with ptr
+		cout << "Null ptr, do nothing" << endl;
+	}
+}
 
 int main()
 {
-	int x = 5;
-	double d = 123.0;
+	double *ptr{ nullptr }; //Modern C++ style 
 
-	int *ptr_x = &x;
-	double *ptr_d;
+	doSomething(ptr);
+	doSomething(nullptr);
 
-	cout << sizeof(x) << endl;
-	cout << sizeof(d) << endl;
-	cout << sizeof(&x) << " " << sizeof(ptr_x) << endl;
-	cout << sizeof(&d) << " " << sizeof(ptr_d) << endl;
+	double d = 123.4;
 
-	Something ss;
-	Something *ptr_s;
+	doSomething(&d);
 
-	cout << sizeof(Something) << endl;
-	cout << sizeof(ptr_s) << endl;
+	ptr = &d;
+
+	doSomething(ptr);
+
+	cout << " Address of pointer variable in main() " << &ptr << endl;
 
 	return 0;
+
 }
