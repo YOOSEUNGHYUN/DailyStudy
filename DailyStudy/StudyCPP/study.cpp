@@ -1,29 +1,20 @@
-//studying pointer and array
+//studying Pointer Arithmetic and Array Indexing
 #include <iostream>
 using namespace std;
 
-//= void printArray(int array[])
-void printArray(int *array)
-{
-	cout << sizeof(array) << endl;
-	cout << "de-referncing : " << *array << endl;
-	*array = 100;
-}
-
 int main()
 {
-	int array[5] = { 9, 7, 5, 3, 1 };
+	char name[] = "Hyoni Hyoni";
 
-	cout << sizeof(array) << endl; //20
-	
-	int *ptr = array;
+	const int num_name = sizeof(name) / sizeof(name[0]);
 
-	cout << sizeof(ptr) << endl; //4 (pointer)
-	        
-	printArray(array);
+	char* ptr = name;
 
-	cout << array[0] <<" " << *array << endl;
+	for (int i = 0; i < num_name; ++i)
+	{
+		cout << *(ptr + i) << endl;
+	}
 
 	return 0;
-
+	
 }    
