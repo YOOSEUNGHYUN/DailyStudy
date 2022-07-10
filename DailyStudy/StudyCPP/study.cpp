@@ -1,20 +1,25 @@
-//studying Pointer Arithmetic and Array Indexing
+//studying C-style string symbolic constants
 #include <iostream>
 using namespace std;
 
+const char* getName()
+{
+	return "Hyoni Hyoni";
+}
+
 int main()
 {
-	char name[] = "Hyoni Hyoni";
+	int int_arr[5] = { 1,2,3,4,5 };
+	char char_arr[] = "Hello, World!";
+	const char *name = "Hyoni Hyoni";
+	
+	cout << int_arr << endl;
+	cout << char_arr << endl;
+	cout << name << endl;
 
-	const int num_name = sizeof(name) / sizeof(name[0]);
-
-	char* ptr = name;
-
-	for (int i = 0; i < num_name; ++i)
-	{
-		cout << *(ptr + i) << endl;
-	}
+	char c = 'Q';
+	cout << *&c << endl;
 
 	return 0;
-	
+
 }    
