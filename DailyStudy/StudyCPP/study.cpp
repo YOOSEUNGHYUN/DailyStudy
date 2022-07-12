@@ -1,25 +1,33 @@
-//studying C-style string symbolic constants
+//studying Dynamic memory allocation with new and delete
 #include <iostream>
 using namespace std;
 
-const char* getName()
-{
-	return "Hyoni Hyoni";
-}
-
 int main()
 {
-	int int_arr[5] = { 1,2,3,4,5 };
-	char char_arr[] = "Hello, World!";
-	const char *name = "Hyoni Hyoni";
-	
-	cout << int_arr << endl;
-	cout << char_arr << endl;
-	cout << name << endl;
+	//int variable;
+	//variable = 7;
 
-	char c = 'Q';
-	cout << *&c << endl;
+	int *ptr = new (std::nothrow) int{ 7 };
+
+	if(ptr) //!= nullptr
+	{ 
+		cout << ptr << endl; //ptrÀº ÁÖ¼Ò
+		cout << *ptr << endl; //de-referncing
+	}
+	else
+	{
+		cout << "Could not allocate memory" << endl;
+	}
+
+	delete ptr;
+	ptr = nullptr;
+
+	cout << "After delete" << endl;
+	if(ptr != nullptr)
+	{ 
+		cout << ptr << endl; 
+		cout << *ptr << endl;
+	}
 
 	return 0;
-
 }    
