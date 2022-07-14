@@ -1,33 +1,26 @@
-//studying Dynamic memory allocation with new and delete
+//studying Dynamically allocating arrays
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	//int variable;
-	//variable = 7;
+	int length = 5;
 
-	int *ptr = new (std::nothrow) int{ 7 };
+	cin >> length;
 
-	if(ptr) //!= nullptr
-	{ 
-		cout << ptr << endl; //ptrÀº ÁÖ¼Ò
-		cout << *ptr << endl; //de-referncing
-	}
-	else
+	//int array[length];
+	int* array = new int[length] {11,22,33,44,55,66};
+
+	array[0] = 1;
+	array[1] = 2;
+
+	for (int i = 0; i < length; ++i)
 	{
-		cout << "Could not allocate memory" << endl;
+		cout << (uintptr_t)&array[i] << endl;
+		cout << array[i] << endl;
 	}
 
-	delete ptr;
-	ptr = nullptr;
-
-	cout << "After delete" << endl;
-	if(ptr != nullptr)
-	{ 
-		cout << ptr << endl; 
-		cout << *ptr << endl;
-	}
+	delete [] array;
 
 	return 0;
-}    
+}
