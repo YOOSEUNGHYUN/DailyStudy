@@ -1,14 +1,21 @@
-//studying pointer and const
+//studying Reference Variable
 #include <iostream>
 using namespace std;
 
 int main()
 {
 	int value = 5;
-	const int *ptr1 = &value;
-	int *const ptr2 = &value;
-	const int *const ptr3 = &value;
+
+	int* ptr = nullptr;
+	ptr = &value;
 	
+	int &ref = value;
+
+	cout << "value : " << &value << endl;
+	cout << "ref : " << &ref << endl;
+	cout << "ptr : " << ptr << endl;
+	cout << "&ptr : " << &ptr << endl;
+
 	return 0;
 }
 
