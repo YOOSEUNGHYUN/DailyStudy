@@ -2,24 +2,27 @@
 #include <iostream>
 using namespace std;
 
-
-void printElements(int (&arr)[5])
-{
-	for (int i = 0; i < 5; ++i)
-	{
-		cout << arr[i] << endl;
-	}
-	
-	cout << endl;
-}
-
 int main()
 {
-	const int length = 5;
-	int arr[length] = { 1,2,3,4,5 };
+	int value1 = 5;
+	int value2 = 10;
 
-	printElements(arr);
+	int &ref1 = value1;
+
+	cout << ref1 << endl;
+	cout << &ref1 << endl;
+	cout << &value1 << endl;
+	cout << &value2 << endl;
+
+	ref1 = value2;
+
+	cout << ref1 << endl;
+	cout << &ref1 << endl;
+	cout << &value1 << endl;
+	cout << &value2 << endl;
 
 	return 0;
+
 }
+	
 
