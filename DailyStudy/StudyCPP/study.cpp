@@ -1,25 +1,21 @@
-//studying Reference Variable
+//studying Reference and const
 #include <iostream>
 using namespace std;
 
+void doSomething(const int &x)
+{
+	cout << x << endl;
+	
+}
+
 int main()
 {
-	int value1 = 5;
-	int value2 = 10;
-
-	int &ref1 = value1;
-
-	cout << ref1 << endl;
-	cout << &ref1 << endl;
-	cout << &value1 << endl;
-	cout << &value2 << endl;
-
-	ref1 = value2;
-
-	cout << ref1 << endl;
-	cout << &ref1 << endl;
-	cout << &value1 << endl;
-	cout << &value2 << endl;
+	int a = 1;
+	
+	doSomething(a);
+	doSomething(1);
+	doSomething(a + 3);
+	doSomething(3 * 4);
 
 	return 0;
 
