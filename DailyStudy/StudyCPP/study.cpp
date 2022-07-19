@@ -1,21 +1,32 @@
-//studying Reference and const
+//studying Member Selection Operators with pointers and references
 #include <iostream>
 using namespace std;
 
-void doSomething(const int &x)
+struct Person
 {
-	cout << x << endl;
-	
-}
+	int age;
+	double weight;
+};
 
 int main()
 {
-	int a = 1;
+	Person person;
+
+	person.age = 5;
+	person.weight = 30;
+
+	Person& ref = person;
+	ref.age = 15;
 	
-	doSomething(a);
-	doSomething(1);
-	doSomething(a + 3);
-	doSomething(3 * 4);
+	Person* ptr = &person; //林家 持绢拎具窃
+	ptr->age = 30;
+	//(*ptr).age = 20;
+
+	Person &ref2 = *ptr;
+	ref2.age = 45;
+
+	cout << &person << endl;
+	cout << &ref2 << endl;
 
 	return 0;
 
