@@ -1,23 +1,35 @@
-//studying For-each C++11
+//studying void pointer(generic pointer)
 #include <iostream>
-#include <limits>
-#include <algorithm>
-#include <vector>
 
 using namespace std;
 
+enum Type
+{
+	INT,
+	FLOAT,
+	CHAR
+};
+
 int main()
 {
-	//int fibonacci[] = { 0,1,1,2,500,3,5,8,13,21,34,55,89 };
+	int i = 5;
+	float f = 3.0;
+	char c = 'a';
 
-	vector<int> fibonacci = { 0,1,1,2,500,3,5,8,13,21,34,55,89 };
+	void *ptr = nullptr;
 
-	int max_number = std::numeric_limits<int>::lowest();
+	ptr = &i;
+	ptr = &f;
+	//ptr = &c;
 
-	for (const auto& n : fibonacci)
-		max_number = std::max(max_number, n);
+	Type type = FLOAT;
 
-	cout << max_number << endl;
+	cout << &f << " " << ptr << endl;
+
+	if(type == FLOAT)
+		cout << *static_cast<float*>(ptr) << endl;
+	else if(type == INT)
+		cout << *static_cast<int*>(ptr) << endl;
 
 	return 0;
 
