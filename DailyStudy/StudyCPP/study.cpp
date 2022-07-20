@@ -1,32 +1,23 @@
-//studying Member Selection Operators with pointers and references
+//studying For-each C++11
 #include <iostream>
-using namespace std;
+#include <limits>
+#include <algorithm>
+#include <vector>
 
-struct Person
-{
-	int age;
-	double weight;
-};
+using namespace std;
 
 int main()
 {
-	Person person;
+	//int fibonacci[] = { 0,1,1,2,500,3,5,8,13,21,34,55,89 };
 
-	person.age = 5;
-	person.weight = 30;
+	vector<int> fibonacci = { 0,1,1,2,500,3,5,8,13,21,34,55,89 };
 
-	Person& ref = person;
-	ref.age = 15;
-	
-	Person* ptr = &person; //林家 持绢拎具窃
-	ptr->age = 30;
-	//(*ptr).age = 20;
+	int max_number = std::numeric_limits<int>::lowest();
 
-	Person &ref2 = *ptr;
-	ref2.age = 45;
+	for (const auto& n : fibonacci)
+		max_number = std::max(max_number, n);
 
-	cout << &person << endl;
-	cout << &ref2 << endl;
+	cout << max_number << endl;
 
 	return 0;
 
