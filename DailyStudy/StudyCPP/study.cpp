@@ -1,35 +1,23 @@
-//studying void pointer(generic pointer)
+//studying Pointers to pointers and dynamic multidimensional arrays
 #include <iostream>
 
 using namespace std;
 
-enum Type
-{
-	INT,
-	FLOAT,
-	CHAR
-};
-
 int main()
 {
-	int i = 5;
-	float f = 3.0;
-	char c = 'a';
+	int *ptr = nullptr;
+	int **ptrptr = nullptr;
 
-	void *ptr = nullptr;
+	int value = 5;
 
-	ptr = &i;
-	ptr = &f;
-	//ptr = &c;
+	ptr = &value;
+	ptrptr = &ptr;
 
-	Type type = FLOAT;
+	cout << ptr << " " << *ptr << " " << &ptr << endl;
+	cout << ptrptr << " " << *ptrptr << " " << &ptrptr << endl;
+	cout << *(*ptrptr) << endl;
 
-	cout << &f << " " << ptr << endl;
-
-	if(type == FLOAT)
-		cout << *static_cast<float*>(ptr) << endl;
-	else if(type == INT)
-		cout << *static_cast<int*>(ptr) << endl;
+	int ***ppptr, ****pppptr;
 
 	return 0;
 
