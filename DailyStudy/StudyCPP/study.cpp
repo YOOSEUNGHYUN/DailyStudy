@@ -1,6 +1,7 @@
 //studying std::array
 #include <iostream>
 #include <array>
+#include <algorithm>
 
 using namespace std;
 
@@ -11,18 +12,18 @@ void printLength(const array<int, 5> &my_arr)
 
 int main()
 {
-	//int array[] = { 1,2,3,4,5 };
+	array<int, 5> my_arr = { 1,21,3,40,5 };
 
-	array<int, 5>my_arr = { 1,2,3,4,5 };
-	my_arr = { 0,1,2,3,4 };
-	my_arr = { 0,1,2 };
+	for (auto &element : my_arr)
+		cout << element << " ";
+	cout << endl;
 
-	cout << my_arr.size() << endl;
+	std::sort(my_arr.rbegin(), my_arr.rend());
 
-	printLength(my_arr);
+	for (auto& element : my_arr)
+		cout << element << " ";
+	cout << endl;
 
 	return 0;
 
 }
-	
-
