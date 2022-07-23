@@ -1,29 +1,29 @@
-//studying std::array
+//studying std::vector
 #include <iostream>
-#include <array>
-#include <algorithm>
+//#include <array>
+#include <vector>
 
 using namespace std;
 
-void printLength(const array<int, 5> &my_arr)
-{
-	cout << my_arr.size() << endl;
-}
-
 int main()
 {
-	array<int, 5> my_arr = { 1,21,3,40,5 };
+	//std::array<int, 5> array;
 
-	for (auto &element : my_arr)
-		cout << element << " ";
+	int *my_arr = new int[5];
+
+	vector<int> arr = { 1,2,3,3,4,5 };
+
+	arr.resize(2);
+
+	for (auto &itr : arr)
+		cout << itr << " ";
 	cout << endl;
 
-	std::sort(my_arr.rbegin(), my_arr.rend());
+	cout << arr.size() << endl;
+	cout << arr[1] << endl;
+	cout << arr.at(1) << endl;
 
-	for (auto& element : my_arr)
-		cout << element << " ";
-	cout << endl;
+	delete[] my_arr;
 
 	return 0;
-
 }
