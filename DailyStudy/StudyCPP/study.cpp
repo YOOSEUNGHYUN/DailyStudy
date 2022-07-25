@@ -1,23 +1,28 @@
-//studying Passing Arguments by Value(Call by Value)
+//studying Passing Arguments by Reference(Call by Reference))
 #include <iostream>
+#include <cmath> //sin(), cos()
 
 using namespace std;
 
-void doSomething(int y)
+void getSinCos(const double &degrees, double &sin_out, double &cos_out)
 {
-	cout << "In func " << y << " " << &y << endl;
+	static const double pi = 3.141592 / 180.0;
+
+	const double radians = degrees * pi;
+
+	sin_out = std::sin(radians);
+	cos_out = std::cos(radians);
 }
 
 int main()
 {
-	doSomething(5);
+	double sin(0.0);
+	double cos(0.0);
 
-	int x = 6;
+	getSinCos(30.0, sin, cos);
 
-	cout << "In main " << x << " " << &x << endl;
-
-	doSomething(x);
-	doSomething(x + 1);
+	cout << sin << " " << cos << endl;
 
 	return 0;
 }
+
