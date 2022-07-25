@@ -1,27 +1,25 @@
 //studying Passing Arguments by Reference(Call by Reference))
 #include <iostream>
-#include <cmath> //sin(), cos()
 
 using namespace std;
 
-void getSinCos(const double &degrees, double &sin_out, double &cos_out)
+typedef int* pint;
+
+//void foo(int *&ptr)
+void foo(pint &ptr)
 {
-	static const double pi = 3.141592 / 180.0;
-
-	const double radians = degrees * pi;
-
-	sin_out = std::sin(radians);
-	cos_out = std::cos(radians);
+	cout << ptr << " " << &ptr <<endl;
 }
 
 int main()
 {
-	double sin(0.0);
-	double cos(0.0);
+	int x = 5;
+	//int *ptr = &x;
+	pint ptr = &x;
 
-	getSinCos(30.0, sin, cos);
+	cout << ptr << " " << &ptr << endl;
 
-	cout << sin << " " << cos << endl;
+	foo(ptr);
 
 	return 0;
 }
